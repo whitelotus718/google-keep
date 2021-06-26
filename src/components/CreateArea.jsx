@@ -1,26 +1,31 @@
 import React, {useState} from 'react';
 
-function CreateArea (props) {
+function CreateArea ({handleSubmit, onAdd}) {
+
     const [note, setNote] = useState({
         title: "",
         content: "",
     });
 
     function handleChange(e){
-        const {name, value} = e.target
-        setNote(preValue =>{
+        const { name, value } = e.target; //destructured
+
+        setNote((preValue) =>{
             return {
                 ...preValue,
-                [name]: value
-            }
+                [name]: value,
+            };
+        });
+    }
+
+    function handleSubmit(e){
+        onAdd(note)
+        setNote({
+            title: "",
+            content: "",
         })
+        e.prevent.default()
     }
-
-    function handleSubmit(i){
-        i.prevent.default()
-        console.log(i);
-    }
-
 
     return (
         <div>
