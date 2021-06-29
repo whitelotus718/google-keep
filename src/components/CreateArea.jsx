@@ -24,7 +24,7 @@ function CreateArea ({handleSubmit, onAdd}) {
             title: "",
             content: "",
         })
-        e.prevent.default()
+        e.preventDefault();
     }
 
     return (

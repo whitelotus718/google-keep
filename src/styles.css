@@ -96,3 +96,13 @@ form button {
     white-space: pre-wrap;
     word-wrap: break-word;
 }
+
+.note button {
+    position: relative;
+    float: right;
+    color: #f88651;
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
+}
