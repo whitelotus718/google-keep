@@ -20,21 +20,35 @@ function App(props) {
     });
   }
 
+  const breakpoints = {
+    default: 4,
+    1100: 3,
+    700: 2,
+    500: 1
+    }
+
   return (
     <div>
       <Header />
 
       <CreateArea onAdd={addNote}/>
+      <Masonry
+        breakpointCols={breakpoints} // 3
+        className="my-masonry-grid"
+        columnClassName="my-masonry-grid_column">
+      
       {notes.map((note, index)=> (
-        <Note
+        // <div key={note.id}>
+          <Note
           key={index}
           id={index}
           title={note.title}
           content={note.content}
           onDelete={deleteNote}
         />
+        // </div>
         ))}
-      {/* <Note /> */}
+      </Masonry>
     </div>
   );
 }
